@@ -2,43 +2,37 @@ import SwiftUI
 import Constants
 
 public struct MessageRectangle<Content: View>: View {
-    //Constants for view
-    private let constants: MessageRectangleConstants
+    let constants: MessageRectangleConstants  ///Constants
+    let content: Content  ///Content in rectangle
     
-    //Content in rectangle
-    private let content: Content
-    
-    //Ovveride default init
-    init(constants: MessageRectangleConstants,
-         content: Content)
-    {
-        self.content = content
-        self.constants = constants
-    }
-    
-    //Private view's properties
+    ///Private view's properties
     private let bounds = UIScreen.main.bounds
+    @State var size: CGSize = .zero
     
-    //If _maxWidth & _maxHeight unspecified then we'll use the standard
+    ///If _maxWidth & _maxHeight unspecified then we'll use the standard
     private var maxWidth: CGFloat {
-        constants._maxWidth ?? bounds.width - 20
+        constants._maxWidth ?? (size == .zero ? bounds.width : size.width + 12)
     }
     private var maxHeight: CGFloat {
-        constants._maxHeight ?? bounds.height/4
+        constants._maxHeight ?? (size == .zero ? bounds.height : size.height + 10)
     }
     
-    //The rectangle will contain the specified content in the content variable
+    ///The rectangle will contain the specified content in the content variable
     public var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: constants.cornerRadius)
                 .foregroundStyle(constants.color)
             content
-                .frame(maxWidth: maxWidth - 12, maxHeight: maxHeight - 10)
-                .padding(.vertical, 10)
-                .padding(.horizontal, 12)
+                .background {
+                    GeometryReader { geo in
+                        Color.clear
+                            .onAppear {
+                                size = geo.size
+                            }
+                    }
+                }
         }
         .frame(maxWidth: maxWidth,
                maxHeight: maxHeight)
-        .fixedSize()
     }
 }
