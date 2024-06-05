@@ -5,23 +5,23 @@ extension ToolTipView {
     //defines the layout for the view
     @inline(__always)
     func layoutConstructor() -> AnyLayout {
-        switch cursorAlignment {
+        switch tooltipAlignment {
         case .top,
                 .topLeading,
                 .topTrailing,
                 .bottom,
                 .bottomLeading,
                 .bottomTrailing:
-            return AnyLayout(VStackLayout(alignment: cursorAlignment.horizontal, spacing: 0))
+            return AnyLayout(VStackLayout(alignment: tooltipAlignment.horizontal, spacing: 0))
         default:
-            return AnyLayout(HStackLayout(alignment: cursorAlignment.vertical, spacing: -6))
+            return AnyLayout(HStackLayout(alignment: tooltipAlignment.vertical, spacing: -6))
         }
     }
     
     //defines the cursor rotation angle
     @inline(__always)
     func angleConstructor() -> Angle {
-        switch cursorAlignment{
+        switch tooltipAlignment {
         case .top, .topLeading, .topTrailing:
             return Angle(degrees: 180)
         case .bottom, .bottomLeading, .bottomTrailing:
@@ -39,7 +39,7 @@ extension ToolTipView {
     //defines the edge indent for the cursor
     @inline(__always)
     func edgeConstructor() -> Edge.Set? {
-        switch cursorAlignment {
+        switch tooltipAlignment {
         case .topLeading, .bottomLeading:
             return .leading
         case .topTrailing, .bottomTrailing:
@@ -53,7 +53,7 @@ extension ToolTipView {
     //determines at which alignment ToolTip will be positioned above the cursor
     @inline(__always)
     func positionConstructor() -> Bool {
-        switch cursorAlignment {
+        switch tooltipAlignment {
         case .top, .topLeading, .topTrailing, .leading:
             return true
         case .bottom, .bottomLeading, .bottomTrailing, .trailing:
