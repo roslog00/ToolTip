@@ -14,7 +14,7 @@ fileprivate struct PaddingModifier: ViewModifier {
     }
 }
 
-//MARK: Do modifier
+//MARK: Set up modifier
 public extension View {
     func padding(_ edge: Edge.Set?,_ lenght: CGFloat?) -> some View {
         modifier(PaddingModifier(edge: edge, lenght: lenght))
