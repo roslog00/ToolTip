@@ -1,35 +1,25 @@
 import SwiftUI
 import Components
 import Constants
+import ViewModifiers
 
 struct ToolTipView<Content: View>: View {
-    //Content & Constants For Message Rectangle
-    fileprivate let content: Content
-    fileprivate let rectangleConstants: MessageRectangleConstants
+    ///Content & Constants For Message Rectangle
+    let content: Content
+    let rectangleConstants: MessageRectangleConstants
     
-    //Constants for Cursor View
-    fileprivate let cursorConstants: CursorConstants
+    ///Constants for Cursor View
+    let cursorConstants: CursorConstants
     
-    //Alignment for positioning cursor and rectangle
-    internal let cursorAlignment: Alignment
-    
-    //Ovveride default init
-    init(cursorAlignment: Alignment,
-         cursorConstants: CursorConstants,
-         rectangleConstants: MessageRectangleConstants,
-         @ViewBuilder content: () -> Content)
-    {
-        self.cursorAlignment = cursorAlignment
-        self.cursorConstants = cursorConstants
-        self.rectangleConstants = rectangleConstants
-        self.content = content()
-    }
+    ///Alignment for positioning cursor and rectangle
+    let tooltipAlignment: Alignment
     
     var body: some View { tooltip }
 }
 
-//MARK: This property collects all cursor and rectangle positioning data and arranges them
+//MARK: - ToolTip
 fileprivate extension ToolTipView {
+    ///This property collects all cursor and rectangle positioning data and arranges them
     var tooltip: some View {
         ///Properties for correct positioning of the rectangle with the cursor
         let onTop = positionConstructor()
@@ -40,14 +30,18 @@ fileprivate extension ToolTipView {
         ///Rectangle
         let rectangle = MessageRectangle(constants: rectangleConstants,
                                          content: content)
+        ///Cursor
+        let cursor = Cursor()
+            .foregroundStyle(rectangleConstants.color)
+            .frame(width: cursorConstants.width, height: cursorConstants.height)
+            .rotationEffect(angle)
+            .padding(edge, 10)
+        
         return layout {
             if onTop {
                 rectangle
             }
-            Cursor()
-                .frame(width: cursorConstants.width, height: cursorConstants.height)
-                .rotationEffect(angle)
-                .padding()
+            cursor
             if !onTop {
                 rectangle
             }
