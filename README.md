@@ -36,3 +36,13 @@ These can be used to completely customise this ToolTip
 ToolTip has a dash inside that controls its behaviour on the screen. The user only needs to click on the anchor to open and hide it, so hiding works by clicking on the rectangle
 
 ![ToolTip](https://i.postimg.cc/bJwFbSLK/i-Phone-15-Pro-Screen-Recording.gif)
+
+##Installation
+**Use the Swift Package Manager to install the ToolTip library:**
+
+In Xcode go to Project -> Your Project Name -> `Package Dependencies` -> Tap _Plus_. Insert url:
+
+```
+https://github.com/roslog00/ToolTip.git
+```
+
