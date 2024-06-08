@@ -1,5 +1,7 @@
 # ToolTip for SwiftUI
 
+![ToolTip](https://i.postimg.cc/bJwFbSLK/i-Phone-15-Pro-Screen-Recording.gif)
+
 **ToolTip with more customisation options**. In ToolTip you can adjust the colour, corner radius, cursor location. You can easily adjust the position of the ToolTip relative to the anchor
 
 ```swift
@@ -35,7 +37,8 @@ These can be used to completely customise this ToolTip
 ## Present and dismiss
 ToolTip has a dash inside that controls its behaviour on the screen. The user only needs to click on the anchor to open and hide it, so hiding works by clicking on the rectangle
 
-![ToolTip](https://i.postimg.cc/bJwFbSLK/i-Phone-15-Pro-Screen-Recording.gif)
+![ToolTip](https://i.postimg.cc/bvVN1kpn/Jun-8.gif)
+![ToolTip](https://i.postimg.cc/Y2WqmvV4/Convert-to-GIF-project-June-8.gif)
 
 ## Installation
 
