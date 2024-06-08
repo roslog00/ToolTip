@@ -1,6 +1,6 @@
 # ToolTip for SwiftUI
 
-![ToolTip](https://www.veed.io/view/00c52a0c-ea16-43f6-9e8b-c6949f3d76f1?panel=share)
+![ToolTip](https://i.postimg.cc/bJwFbSLK/i-Phone-15-Pro-Screen-Recording.gif)
 
 **ToolTip with more customisation options**. In ToolTip you can adjust the colour, corner radius, cursor location. You can easily adjust the position of the ToolTip relative to the anchor
 
