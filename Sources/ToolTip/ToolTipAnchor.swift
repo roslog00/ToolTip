@@ -1,6 +1,6 @@
 import SwiftUI
-import ViewModifiers
 import Constants
+import ViewModifiers
 
 public struct ToolTipAnchor<Content: View, Anchor: View>: View {
     //Views
@@ -29,13 +29,11 @@ public struct ToolTipAnchor<Content: View, Anchor: View>: View {
     //MARK: - Body
     public var body: some View {
         anchor
-            .modifier(
-                PressModifier(pressStyle: const.pressStyle, action: {
-                    withAnimation(.spring) {
-                        showToolTip.toggle()
-                    }
-                })
-            )
+            .onTapGesture {
+                withAnimation(.spring(duration: 0.2)) {
+                    showToolTip.toggle()
+                }
+            }
             .overlay {
                 Group {
                     ToolTipView(content: content,
