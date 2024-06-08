@@ -37,7 +37,8 @@ ToolTip has a dash inside that controls its behaviour on the screen. The user on
 
 ![ToolTip](https://i.postimg.cc/bJwFbSLK/i-Phone-15-Pro-Screen-Recording.gif)
 
-##Installation
+## Installation
+
 **Use the Swift Package Manager to install the ToolTip library:**
 
 In Xcode go to Project -> Your Project Name -> `Package Dependencies` -> Tap _Plus_. Insert url:
