@@ -42,12 +42,17 @@ public struct ToolTipAnchor<Content: View, Anchor: View>: View {
     //MARK: - Body
     public var body: some View {
         layout {
-            anchor
-                ToolTipView(content: content,
-                            rectangleConstants: rectangleConstants,
-                            cursorConstants: cursorConstants,
-                            tooltipAlignment: tooltipAlignment)
-                .opacity(showToolTip ? 1 : 0)
+            if tooltipAlignment == .bottom || tooltipAlignment == .trailing {
+                anchor
+            }
+            ToolTipView(content: content,
+                        rectangleConstants: rectangleConstants,
+                        cursorConstants: cursorConstants,
+                        tooltipAlignment: tooltipAlignment)
+            .opacity(showToolTip ? 1 : 0)
+            if tooltipAlignment == .top || tooltipAlignment == .leading {
+                anchor
+            }
         }
         .animation(.spring(duration: 0), value: showToolTip)
         .onTapGesture {
