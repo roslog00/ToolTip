@@ -7,7 +7,7 @@ public struct MessageRectangle<Content: View>: View {
     
     ///Private view's properties
     private let bounds = UIScreen.main.bounds
-    @State var size: CGSize = .zero
+    @State private var size: CGSize = .zero
     
     ///If _maxWidth & _maxHeight unspecified then we'll use the standard
     private var maxWidth: CGFloat {
