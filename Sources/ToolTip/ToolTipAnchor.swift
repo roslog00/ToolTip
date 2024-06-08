@@ -1,6 +1,6 @@
 import SwiftUI
-import Constants
 import ViewModifiers
+import Constants
 
 public struct ToolTipAnchor<Content: View, Anchor: View>: View {
     //Views

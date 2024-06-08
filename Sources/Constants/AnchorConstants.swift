@@ -1,5 +1,6 @@
 import SwiftUI
 
+//MARK: Style of press for enable tooltip
 public enum PressStyle {
     case tap, longPress
 }

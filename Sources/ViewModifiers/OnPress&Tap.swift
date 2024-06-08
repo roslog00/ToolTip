@@ -6,7 +6,7 @@ public struct PressModifier: ViewModifier {
     let action: () -> Void
     
     @ViewBuilder
-    func body(content: Content) -> some View {
+    public func body(content: Content) -> some View {
         switch pressStyle {
         case .tap:
             content
