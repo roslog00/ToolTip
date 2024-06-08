@@ -1,7 +1,6 @@
 import SwiftUI
-import Constants
 
-struct ToolTipAnchor<Content: View, Anchor: View>: View {
+public struct ToolTipAnchor<Content: View, Anchor: View>: View {
     //Views
     ///Rectangle content
     let content: Content
@@ -42,7 +41,8 @@ struct ToolTipAnchor<Content: View, Anchor: View>: View {
                     .opacity(showToolTip ? 1 : 0)
                 }
                 .padding(const.padding.edge, const.padding.lenght)
-                .frame(maxWidth: bounds.width, maxHeight: bounds.height)
+                .frame(maxWidth: const.frame?.width ?? bounds.width,
+                       maxHeight: const.frame?.height ?? bounds.height)
                 .fixedSize()
                 .offset(const.offset)
                 .onTapGesture {
@@ -53,6 +53,3 @@ struct ToolTipAnchor<Content: View, Anchor: View>: View {
             }
     }
 }
-
-
-
