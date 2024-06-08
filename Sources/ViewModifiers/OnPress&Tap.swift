@@ -1,7 +1,7 @@
 import SwiftUI
 import Constants
 
-struct PressModifier: ViewModifier {
+public struct PressModifier: ViewModifier {
     let pressStyle: PressStyle
     let action: () -> Void
     

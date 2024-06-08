@@ -29,11 +29,13 @@ public struct ToolTipAnchor<Content: View, Anchor: View>: View {
     //MARK: - Body
     public var body: some View {
         anchor
-            .modifier(PressModifier(pressStyle: const.pressStyle, action: {
-                withAnimation(.spring) {
-                    showToolTip.toggle()
-                }
-            }))
+            .modifier(
+                PressModifier(pressStyle: const.pressStyle, action: {
+                    withAnimation(.spring) {
+                        showToolTip.toggle()
+                    }
+                })
+            )
             .overlay {
                 Group {
                     ToolTipView(content: content,
