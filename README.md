@@ -1,7 +1,7 @@
 # ToolTip for SwiftUI
 
-![ToolTip](https://i.postimg.cc/bJwFbSLK/i-Phone-15-Pro-Screen-Recording.gif)
 <p float="left">
+   <img src="https://i.postimg.cc/bJwFbSLK/i-Phone-15-Pro-Screen-Recording.gif" width="45%">
   <img src="https://i.postimg.cc/XvJzByst/2024-06-08-15-33-49.png" width="45%">
 </p>
 
