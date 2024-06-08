@@ -8,7 +8,7 @@ public struct MessageRectangleConstants{
     public let _maxHeight: CGFloat?
     
     //Ovveride default init
-     public init(color: Color = .black,
+    public init(color: Color = .black,
          cornerRadius: CGFloat = 12,
          _maxWidth: CGFloat? = nil,
          _maxHeight: CGFloat? = nil) {
