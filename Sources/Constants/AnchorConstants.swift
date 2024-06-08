@@ -1,30 +1,34 @@
 import SwiftUI
 
+//MARK: Style of press for enable tooltip
+public enum PressStyle {
+    case tap, longPress
+}
+
 public struct AnchorConstants {
-    //MARK: Anchor properties
     ///Contstants for chield views
     public let rectConst: MessageRectangleConstants
     public let cursorConst: CursorConstants
     
     ///ToolTip helper properties
+    public let pressStyle: PressStyle
     public let alignment: Alignment
     public let offset: CGSize
-    public let padding: (edge: Edge.Set, lenght: CGFloat)
     public let frame: (width: CGFloat, height: CGFloat)?
     
     ///Ovveride default init
     public init(rectangleConstants: MessageRectangleConstants = MessageRectangleConstants(),
          cursorConstants: CursorConstants = CursorConstants(),
+         pressStyle: PressStyle = .tap,
          tooltipOffset: CGSize = .zero,
          tooltipAlignment: Alignment = .center,
-         tooltipFrame: (CGFloat, CGFloat)? = nil,
-         tooltipPadding: (Edge.Set, CGFloat) = (.all, 0))
+         tooltipFrame: (CGFloat, CGFloat)? = nil)
     {
         self.rectConst = rectangleConstants
         self.cursorConst = cursorConstants
         self.alignment = tooltipAlignment
         self.offset = tooltipOffset
-        self.padding = tooltipPadding
         self.frame = tooltipFrame
+        self.pressStyle = pressStyle
     }
 }
